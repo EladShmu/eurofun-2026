@@ -18,7 +18,7 @@ interface Props {
   frozen?: boolean;
 }
 
-const SCORE_VALUES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const SCORE_VALUES = [1, 2, 3, 4, 5];
 
 function ScoreRow({
   label, value, onChange, disabled,
@@ -35,6 +35,7 @@ function ScoreRow({
         {SCORE_VALUES.map(n => (
           <button
             key={n}
+            data-score={n}
             className={`score-btn ${value === n ? 'active' : ''}`}
             onClick={() => onChange(n)}
             disabled={disabled}

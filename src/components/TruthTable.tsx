@@ -20,6 +20,12 @@ export default function TruthTable({ globalConfig, userData }: Props) {
   const actualResults = globalConfig?.actualResults ?? [];
   const actualScores = globalConfig?.actualScores ?? {};
 
+  const maxTotal = actualResults.reduce((max, id) => {
+    const s = actualScores[id];
+    const t = s ? (s.jury ?? 0) + (s.audience ?? 0) : 0;
+    return Math.max(max, t);
+  }, 0);
+
   return (
     <div className="truth-table-page">
       <div className="truth-table-header">
@@ -44,11 +50,17 @@ export default function TruthTable({ globalConfig, userData }: Props) {
               if (!c) return null;
               const score = actualScores[id];
               const total = score ? (score.jury ?? 0) + (score.audience ?? 0) : null;
+              const barPct = (total && maxTotal > 0) ? (total / maxTotal) * 100 : 0;
               return (
                 <div key={id} className="truth-row">
                   <span className="truth-rank">#{i + 1}</span>
                   <FlagSm isoCode={c.isoCode} name={c.name} />
                   <span className="truth-country">{c.name}</span>
+                  {total != null && total > 0 && (
+                    <div className="truth-bar-wrap">
+                      <div className="truth-bar" style={{ width: `${barPct}%` }} />
+                    </div>
+                  )}
                   {total != null && total > 0 && <span className="truth-score">{total}</span>}
                 </div>
               );
