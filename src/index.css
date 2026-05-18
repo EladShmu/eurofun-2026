@@ -154,7 +154,7 @@ main { flex: 1; padding: 1rem; max-width: 640px; margin: 0 auto; width: 100%; }
 }
 
 .ranked-card-top {
-  display: flex; align-items: center; gap: 0.45rem; margin-bottom: 0.5rem; flex-wrap: wrap;
+  display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.5rem; flex-wrap: wrap;
 }
 
 .rank-badge {
@@ -1039,8 +1039,17 @@ main { flex: 1; padding: 1rem; max-width: 640px; margin: 0 auto; width: 100%; }
   font-size: 0.72rem; color: var(--text2); flex-shrink: 0; transition: color 0.15s;
   background: var(--bg3); border-radius: 4px; padding: 0.1rem 0.3rem; font-weight: 700;
 }
-.ranked-card.collapsed { padding-bottom: 0.6rem; }
+.ranked-card.collapsed {
+  padding: 0.38rem 0.6rem;
+  margin-bottom: 0.25rem;
+  box-shadow: none;
+}
+.ranked-card.collapsed .ranked-card-top { margin-bottom: 0; gap: 0.35rem; }
 .ranked-card.collapsed .collapse-arrow { color: var(--accent2); }
+.ranked-card.collapsed .flag-img { width: 26px; height: 19px; }
+.ranked-card.collapsed .country-name { font-size: 0.88rem; }
+.ranked-card.collapsed .rank-position-input { width: 2.2rem; font-size: 0.8rem; }
+.ranked-card.collapsed .perf-order-wrap { display: none; }
 
 /* ── Ranked card medal colors ── */
 .ranked-card.rank-gold {
