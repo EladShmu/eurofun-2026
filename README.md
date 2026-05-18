@@ -127,4 +127,4 @@ A **Grand Total** combines all five: each user gets rank points (8/5/3/1) per ga
 
 ---
 
-*Built by [Elad Shmulwitz](https://github.com/EladShmu)*
+*Built by [Elad Shmulevich](https://github.com/EladShmu)*
